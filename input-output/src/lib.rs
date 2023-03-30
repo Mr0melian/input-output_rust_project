@@ -20,3 +20,30 @@ pub fn run (config: Config)->Result<(),Box<dyn Error>>{
     println!("With text:\n{}", contest);
     Ok(())
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_new(){
+        let s = vec!["a".to_string(), "b".to_string(), "c".to_string()];
+        let config = Config::new(&s).unwrap();
+        let con = Config{
+            query: "b".to_string(),
+            filename: "c".to_string()
+        };
+        assert_eq!(con.query, config.query);
+    }
+    #[test]
+    fn test_run(){
+        let config = Config{
+            query: "b".to_string(),
+            filename: "example.txt ".to_string()
+        };
+        if let Err(e) = run(config) {
+            assert!(true)
+        }
+    }
+}
