@@ -4,7 +4,7 @@ struct Config{
     query:String,
     filename:String,
 }
-
+//hjbbbuyb
 impl Config{
     fn new(args: &[String]) -> Config{
         if args.len() < 3{
@@ -24,3 +24,6 @@ fn main() {
     let contest = fs::read_to_string(config.filename).expect("Failed to read");
     println!("With text:\n{}", contest);
 }
+
+
+
